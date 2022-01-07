@@ -1,5 +1,4 @@
-%a.item
-  Chatroom
+= link_to 'Chatroom', root_path, class: 'item'
 %a.item
   Messages
 %div.right.menu
@@ -9,8 +8,7 @@
     %div.menu
       %a.item
         Log out
-      %a.item
-        Log in
+      = link_to 'Log in', login_path, class: 'item'
       %a.item
         Sign up
   %div.item

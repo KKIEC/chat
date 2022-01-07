@@ -1,2 +1,33 @@
-%h1
-  You have reached the login page
+%h2.ui.center.aligned.large.header
+  Welcome to Chat -
+  %em
+    a complete Chat App
+
+%h4.ui.center.aligned.medium.icon.header
+  %i.circular.orange.power.off.tiny.icon
+  Log in to continue
+
+%div.ui.placeholder.segment
+  %div.ui.two.column.very.relaxed.stackable.grid
+    %div.column
+      %form.ui.form
+        %div.field
+          %label
+            Username
+          %div.ui.left.icon.input
+            %input{ type: "text", placeholder: "Username" }
+            %i.user.icon
+        %div.field
+          %label
+            Password
+          %div.ui.left.icon.input
+            %input{ type: "text", placeholder: "Password" }
+            %i.lock.icon
+        %button.ui.orange.submit.button
+          Login
+    %div.middle.aligned.column
+      %div.ui.big.orange.disabled.button
+        %i.signup.icon
+        Sign up
+  %div.ui.vertical.divider
+    Or
