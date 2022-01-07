@@ -7,39 +7,8 @@
     %div.ui.fluid.raised.card.chatbox
       %div.content
         %div.ui.feed
-          %div.event
-            %div.content
-              %div.summary
-                %a
-                  Elliot Fu
-                added
-                %a
-                  Jenny Hess
-                as a friend
-          %div.event
-            %div.content
-              %div.summary
-                %a
-                  Elliot Fu
-                added
-                %a
-                  Jenny Hess
-                as a friend
-          %div.event
-            %div.content
-              %div.summary
-                %a
-                  Elliot Fu
-                added
-                %a
-                  Jenny Hess
-                as a friend
-          %div.event
-            %div.content
-              %div.summary
-                %em
-                  Christian Rocha:
-                Test message
+          = render 'messages/message'
+
       %div.extra.content
         %form.ui.reply.form
           %div.field
