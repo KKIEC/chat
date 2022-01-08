@@ -1,7 +1,6 @@
-- @messages.each do |msg|
-  %div.event
-    %div.content
-      %div.summary
-        %em
-          = msg.user.username + ':'
-        = msg.body
+%div.event
+  %div.content
+    %div.summary
+      %em
+        = message.user.username + ':'
+      = message.body

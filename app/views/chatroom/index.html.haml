@@ -5,16 +5,16 @@
 %div.ui.two.column.grid
   %div.twelve.wide.column
     %div.ui.fluid.raised.card.chatbox
-      %div.content
-        %div.ui.feed
-          = render 'messages/message'
+      %div.content{ id: "messages" }
+        %div.ui.feed{ id: "message-container" }
+          = render @messages
 
       %div.extra.content
-        %form.ui.reply.form
+        = form_for(@message, html: { class: 'ui reply form', role: 'form' }, url: message_path, remote: true) do |f|
           %div.field
             %div.ui.fluid.icon.input
-              %input{ type: "text", placeholder: "Enter a message..." }
-              %i.bordered.inverted.orange.edit.icon
+              = f.text_field :body
+              = f.button '<i class="bordered inverted orange edit icon"></i>'.html_safe
 
   %div.four.wide.column
     %div.ui.fluid.raised.card.chatbox
