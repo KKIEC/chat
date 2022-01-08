@@ -1,0 +1,5 @@
+- flash.each do |msg_type, msg|
+  = content_tag(:div, class: "ui #{msg_type} message transition") do
+    %i.close.icon
+    %div.header
+      = msg

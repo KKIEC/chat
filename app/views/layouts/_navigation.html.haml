@@ -6,11 +6,10 @@
     Account
     %i.dropdown.icon
     %div.menu
-      %a.item
-        Log out
-      = link_to 'Log in', login_path, class: 'item'
-      %a.item
-        Sign up
-  %div.item
-    %div.ui.primary.button
-      Sign up
+      - if logged_in?
+        = link_to 'Logout', logout_path, method: :delete, class: 'item'
+      - else
+        = link_to 'Log in', login_path, class: 'item'
+  - if !logged_in?
+    %div.item
+      = link_to 'Log in', login_path, class: 'ui primary button'
