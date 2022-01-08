@@ -5,10 +5,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:session][:username])
-    if user && user.authenticate(params[:session][:password])
-      session[:user_id] = user.id
-      flash[:success] = 'You have successfully logged in.'
-      redirect_to root_path
+    if user && user_authentication(user)
+      session_assignment(user)
     else
       flash.now[:error] = 'There was something wrong with your login data.'
       render 'new'
@@ -24,9 +22,19 @@ class SessionsController < ApplicationController
   private
 
   def logged_in_redirect
-    if logged_in?
-      flash[:error] = 'You are already logged in.'
-      redirect_to root_path
-    end
+    return unless logged_in?
+
+    flash[:error] = 'You are already logged in.'
+    redirect_to root_path
+  end
+
+  def user_authentication(user)
+    user.authenticate(params[:session][:password])
+  end
+
+  def session_assignment(user)
+    session[:user_id] = user.id
+    flash[:success] = 'You have successfully logged in.'
+    redirect_to root_path
   end
 end
